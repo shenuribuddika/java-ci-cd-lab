@@ -1,14 +1,18 @@
-name: "Java Build Action"
-description: "Returns build result"
+name: "Greeting Action"
+description: "Receives name and returns message"
+inputs:
+  username:
+  required: true 
+  description: "User name"
+
 outputs:
-  result: 
-  description: "Build result"
-  
+ message:
+    description: "Greeting message"
 runs: 
 using: "Composite"
 steps:
-  - name: Set Output 
-    run: echo "result=successful" >> $GITHUB_OUTPUT
+  - name: Create Greeting  
+    run: echo "message=Hello, ${{inputs.username}}! Welcome" >> $GITHUB_OUTPUT
     shell: bash
 
   
